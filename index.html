@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>flash-montage — an open agent skill for the flash montage teaser</title>
+  <meta name="description" content="An open-source agent skill that cuts a launch teaser from 989 real objects at one and two frames, on a rhythm measured frame by frame. Builds an editable HyperFrames project." />
+  <meta property="og:title" content="flash-montage" />
+  <meta property="og:description" content="Show everything in 24 seconds. An open agent skill for the flash montage teaser." />
+  <meta property="og:image" content="https://arjunkshah12345-hash.github.io/flash-montage-site/media/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="media/favicon.png" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="bar">
+    <a class="wordmark" href="#top">flash-montage</a>
+    <nav aria-label="Main">
+      <a class="hide-sm" href="#formula">Formula</a>
+      <a class="hide-sm" href="https://arjunkshah12345-hash.github.io/flash-montage-library/">Library</a>
+      <a href="https://github.com/arjunkshah12345-hash/flash-montage">GitHub</a>
+      <a class="btn btn-small" href="#install">Install</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: the sentence split by the reel; the reel plays a real cut list -->
+    <section class="hero" aria-label="Introduction">
+      <h1 class="hero-line"><span class="half half-l">Show everything</span> <span class="half half-r">in 24 seconds</span></h1>
+      <div class="reel" id="reel" aria-hidden="false">
+        <div class="slot" data-k="-2"><img alt="" /></div>
+        <div class="slot" data-k="-1"><img alt="" /></div>
+        <figure class="slot live" data-k="0">
+          <img id="live-img" alt="A flash montage playing: real objects cut at one and two frames" src="media/render/f102.jpg" width="1280" height="720" />
+          <canvas id="live-cv" width="960" height="540" aria-hidden="true"></canvas>
+          <canvas id="live-gl" width="960" height="540" aria-hidden="true"></canvas>
+          <div id="live-mark" class="live-mark" aria-hidden="true">flash-montage</div>
+          <button class="reel-toggle" id="reel-toggle" type="button" aria-pressed="false">Pause</button>
+        </figure>
+        <div class="slot" data-k="1"><img alt="" /></div>
+        <div class="slot" data-k="2"><img alt="" /></div>
+      </div>
+      <p class="hero-sub">An open-source agent skill that cuts your launch teaser from 989 real objects, on a rhythm measured frame by frame.</p>
+      <p class="hero-now" id="hero-now" aria-live="off">Origin, 67 frames</p>
+    </section>
+
+    <!-- INTRO: lead line over four columns -->
+    <section class="intro wrap reveal">
+      <p class="lead">The flash montage is the launch teaser everyone copied in October 2026: a product moment, then three bursts of unrelated, beautifully lit objects cut at one and two frames, slowing until one object holds and dissolves into code.</p>
+      <div class="four">
+        <p><b>Who it's for.</b> Teams launching a model, an agent or a developer tool who want the “it can make anything” teaser without a week in an editor. You bring a name, a prompt and a few lines of your real code; the formula decides the rest.</p>
+        <p><b>What it makes.</b> A HyperFrames project, not a flat video: an origin scene, one scene per burst with every shot as a timed clip you can move, three live 3D holds, a glitch layer, sound cues, a shot list and a credits file. It renders to a 1080p MP4 in minutes.</p>
+        <p><b>Where it runs.</b> In any agent that loads skills: Claude Code, Cursor, Codex and the rest that <code>npx skills</code> installs into. It runs on your machine with Python, Node and ffmpeg and needs no API keys.</p>
+        <p><b>How to get it.</b> One command installs the skill, a second fetches the image library. Then ask your agent for a flash montage of your product. The code is MIT-licensed; every image is CC0, public domain, NASA media or generated.</p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS: photographs down a diagonal -->
+    <section class="acts wrap reveal" id="acts">
+      <h2 class="acts-h">Three acts, measured</h2>
+      <div class="act act-1">
+        <img src="media/render/f40-portrait.jpg" width="900" height="1200" alt="A beige retro computer on a grey sweep, its terminal typing a prompt" loading="lazy" />
+        <p><b>The first 67 frames</b> show the product working: a beige terminal types your prompt while the camera pushes in, then the screen tears into blocks. Two seconds, no logo.</p>
+      </div>
+      <div class="act act-2">
+        <img src="media/render/f150-square.jpg" width="1000" height="1000" alt="A bee specimen on black, one frame of a burst" loading="lazy" />
+        <p><b>Then three bursts</b> of 48, 35 and 71 shots. Each starts at one or two frames a shot and slows to six or eleven. No subject appears twice in a row, and the grounds alternate pale, black and full-bleed.</p>
+      </div>
+      <div class="act act-3">
+        <img src="media/render/f600.jpg" width="1280" height="720" alt="The moon on black with translucent code chips gathering on it" loading="lazy" />
+        <p><b>Each burst lands on a hold</b>: a sphere shedding particles, an x-ray flower, the moon. Your own code gathers on it as translucent chips, then the frame breaks apart. The film ends on a small wordmark and one high ping.</p>
+      </div>
+    </section>
+
+    <!-- LIVE THING: the burst designer, pinned while three statements set it -->
+    <section class="formula" id="formula" aria-labelledby="formula-h">
+      <div class="formula-pin">
+        <div class="designer" data-ui id="designer">
+          <div class="d-top">
+            <label class="d-name">Product <input id="d-name" type="text" value="Atlas" maxlength="18" spellcheck="false" autocomplete="off" /></label>
+            <button class="d-play" id="d-play" type="button">Play burst</button>
+          </div>
+          <div class="d-stage" id="d-stage">
+            <img id="d-img" alt="" src="media/shots/000.jpg" />
+            <div class="d-word" id="d-word">Atlas</div>
+          </div>
+          <div class="d-bars" id="d-bars" aria-hidden="true"></div>
+          <p class="d-read" id="d-read" aria-live="polite">48 shots · 133 frames · 4.4 s</p>
+          <div class="d-controls">
+            <label>Shots <output id="o-n">48</output><input id="d-n" type="range" min="12" max="90" step="1" value="48" /></label>
+            <label>Starts at <output id="o-a">1.5 f</output><input id="d-a" type="range" min="1" max="3" step="0.1" value="1.5" /></label>
+            <label>Ends at <output id="o-b">6 f</output><input id="d-b" type="range" min="3" max="14" step="0.5" value="6" /></label>
+            <label>Curve <output id="o-p">2.6</output><input id="d-p" type="range" min="1" max="5" step="0.1" value="2.6" /></label>
+          </div>
+          <div class="d-code">
+            <pre><code id="d-json"></code></pre>
+            <button class="d-copy" id="d-copy" type="button">Copy plan</button>
+          </div>
+        </div>
+      </div>
+      <div class="formula-text">
+        <h2 id="formula-h">Draw a burst</h2>
+        <p class="formula-eq">Every shot length comes from one curve, <code>d(i) = a + (b − a)·(i / (n − 1))<sup>p</sup></code>, rounded on the running total so that 1.5 frames comes out as two, one, two, one.</p>
+        <div class="step" data-preset="48,1.5,6,2.6"><p><b>Burst A opens.</b> Forty-eight shots, two frames easing to six.</p></div>
+        <div class="step" data-preset="35,1.8,6,2.5"><p><b>Burst B restarts fast.</b> Thirty-five shots, then the flower holds.</p></div>
+        <div class="step" data-preset="71,1,11,4"><p><b>Burst C slows down.</b> Seventy-one shots, from one frame to eleven.</p></div>
+        <div class="step step-last"><p><b>Now yours.</b> Name it, drag the curve, press play.</p></div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE: frame run, one lifted -->
+    <section class="run reveal" aria-labelledby="run-h">
+      <div class="run-side">
+        <h2 id="run-h">A real render</h2>
+        <a class="link" href="media/render/atlas.mp4">Watch it with sound</a>
+        <p class="run-note">ATLAS is a made-up brand. One command built it from the default plan; every image in it is CC0 or public domain, and its credits file lists all 158 sources.</p>
+      </div>
+      <div class="run-row">
+        <figure><img src="media/render/f40.jpg" alt="Origin: the terminal" width="1280" height="720" loading="lazy" /><figcaption><span>Origin</span><span>67 f</span></figcaption></figure>
+        <figure><img src="media/render/f102.jpg" alt="A leaf, one shot of burst A" width="1280" height="720" loading="lazy" /><figcaption><span>Burst A</span><span>2 f</span></figcaption></figure>
+        <figure class="lifted">
+          <video src="media/render/atlas-loop.mp4" poster="media/render/f215.jpg" muted loop playsinline autoplay preload="auto" width="960" height="540" aria-label="The ATLAS flash montage, 24 seconds, looping without sound"></video>
+          <figcaption><span>The whole film</span><span>24.7 s</span></figcaption>
+        </figure>
+        <figure><img src="media/render/f215.jpg" alt="The red sphere hold" width="1280" height="720" loading="lazy" /><figcaption><span>Hold A</span><span>30 f</span></figcaption></figure>
+        <figure><img src="media/render/f360.jpg" alt="The x-ray flower hold" width="1280" height="720" loading="lazy" /><figcaption><span>Hold B</span><span>34 f</span></figcaption></figure>
+        <figure><img src="media/render/f600.jpg" alt="The moon hold" width="1280" height="720" loading="lazy" /><figcaption><span>Hold C</span><span>63 f</span></figcaption></figure>
+        <figure><img src="media/render/f650.jpg" alt="The wordmark on black" width="1280" height="720" loading="lazy" /><figcaption><span>Mark</span><span>92 f</span></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- FEATURES: comparison set as text -->
+    <section class="compare wrap reveal" aria-labelledby="cmp-h">
+      <h2 id="cmp-h">What you skip</h2>
+      <div class="cmp" role="table" aria-label="flash-montage compared with cutting by hand and with a stock montage">
+        <div class="cmp-row cmp-head" role="row"><span role="columnheader"></span><span role="columnheader" class="hot">flash-montage</span><span role="columnheader">Cutting it by hand</span><span role="columnheader">A stock montage</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Shot timing</span><span role="cell" class="hot">Measured curve, frame-exact</span><span role="cell">Counted by eye</span><span role="cell">Cut to the music grid</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Image rights</span><span role="cell" class="hot">CC0, public domain, NASA</span><span role="cell">You check every one</span><span role="cell">Per-clip licence</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Variety</span><span role="cell" class="hot">No subject twice in a row</span><span role="cell">Up to your eye</span><span role="cell">What the pack has</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Hero holds</span><span role="cell" class="hot">Three live 3D objects</span><span role="cell">Find or model them</span><span role="cell">None</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Your code on screen</span><span role="cell" class="hot">Yes, your real lines</span><span role="cell">Keyed by hand</span><span role="cell">No</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Sound</span><span role="cell" class="hot">Cues on every burst and hold</span><span role="cell">Placed by hand</span><span role="cell">One music track</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Editing after</span><span role="cell" class="hot">Every shot is a clip in Studio</span><span role="cell">Yes, in your editor</span><span role="cell">Rarely</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Credits</span><span role="cell" class="hot">Written on every build</span><span role="cell">Kept by hand</span><span role="cell">Varies</span></div>
+        <div class="cmp-row" role="row"><span role="rowheader">Price</span><span role="cell" class="hot">Free, MIT licence</span><span role="cell">A week of your time</span><span role="cell">Per licence</span></div>
+      </div>
+    </section>
+
+    <!-- GALLERY: one frame, contents change -->
+    <section class="cabinet wrap reveal" id="library" aria-labelledby="lib-h">
+      <div class="cabinet-text">
+        <h2 id="lib-h">989 open images</h2>
+        <p>Shells, skeletons, eyes, plates, minerals, creatures, machines, drawings, aerials, the cosmos and studio objects, curated by eye for single subjects on plain studio grounds. Each one carries its licence, creator, source page, ground and palette, and you can use every one in a commercial film.</p>
+        <p>Thirteen categories, 827 photographs and scans plus 162 stills of the skill's own 3D specimens. The library has its own repository and its own site.</p>
+        <a class="btn" href="https://arjunkshah12345-hash.github.io/flash-montage-library/">Browse the library</a>
+      </div>
+      <figure class="vitrine">
+        <button class="vitrine-frame" id="vitrine" type="button" aria-label="Next specimen"></button>
+        <figcaption id="vitrine-cap">Nautilus shell slice · lisafree54 · CC0</figcaption>
+      </figure>
+    </section>
+
+    <!-- ABOUT: the lineage, two columns with highlighted facts -->
+    <section class="lineage wrap reveal" aria-label="Where the format comes from">
+      <p><strong>flash-montage</strong> takes its rhythm from the <mark class="m1">Kimi K3.1 teaser</mark> of October 2026, which put 159 shots into 24 seconds. The idea is much older. In <mark class="m2">1959</mark> Charles and Ray Eames filled seven screens in Moscow with more than 2,200 images in twelve minutes and called it <mark class="m3">Glimpses of the U.S.A.</mark> Godfrey Reggio's <mark class="m2">Koyaanisqatsi</mark> turned time-lapse and montage into a way of seeing a whole planet, and advertising borrowed its look for forty years. On TikTok, <mark class="m3">corecore</mark> cut found clips into pure feeling. The 2026 version keeps the breadth and drops the people: one object, centred on a plain studio sweep, lit like a museum specimen, gone in two frames. This skill writes that version down as numbers, so that any team can make one honestly, with images anyone may use. <a class="m-last" href="https://github.com/arjunkshah12345-hash/flash-montage/blob/main/references/teardown-kimi-k31.md">Read the full teardown.</a></p>
+    </section>
+
+    <!-- CTA: the action tile -->
+    <section class="tiles reveal" id="install" aria-labelledby="install-h">
+      <div class="tile tile-photo"><img src="media/cta.jpg" alt="Satellite view of a phytoplankton bloom swirling in the sea off western Iceland" width="800" height="900" loading="lazy" /></div>
+      <div class="tile tile-main">
+        <h2 id="install-h">Make yours tonight</h2>
+        <p>Install the skill, fetch the library once, then ask your agent for a flash montage of your product. Free, MIT-licensed, no keys.</p>
+        <div class="cmd" data-ui>
+          <code id="cmd">npx skills add arjunkshah12345-hash/flash-montage</code>
+          <button type="button" id="cmd-copy">Copy</button>
+        </div>
+      </div>
+      <div class="tile tile-flat"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span class="soft">An open agent skill</span>
+    <span class="foot-links">
+      <a href="https://github.com/arjunkshah12345-hash/flash-montage">GitHub</a>
+      <a href="https://skills.sh/arjunkshah12345-hash/flash-montage">skills.sh</a>
+      <a href="https://arjunkshah12345-hash.github.io/flash-montage-library/">Library</a>
+      <a href="https://github.com/arjunkshah12345-hash/flash-montage-site">Site source</a>
+    </span>
+    <span class="soft foot-r">2026 · <a href="credits.html">Image credits</a></span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
